@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service              # 1
+metadata:
+  name: coit-frontend-lb
+  labels:
+    app: coit-frontend
+spec:
+  type: LoadBalancer  
+  ports:
+  - port: 80               # 3
+    protocol: TCP          # 4
+    targetPort: 80
+    name: web         # 5
+  selector:                # 6
+    app: coit-frontend       # 7
